@@ -3,6 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Button,
 } from 'react-native';
 
 
@@ -24,12 +25,19 @@ if(result){
 
   return (
    <View style={styles.container}>
+    <View style={[styles.dataWrapper ,{backgroundColor:'skyblue' }]}>
+            <View style={{flex:1.5}}><Text>Name</Text></View>
+       <View style={{flex:2}}><Text>Age</Text></View>
+       <View style={{flex:2}}><Text>Operations</Text></View> 
+       </View>
+ 
     {
       data.length? 
       data.map((item)=><View style={styles.dataWrapper}>
-       <View><Text>{item.name}</Text></View>
-       <View><Text>{item.age}</Text></View>
-       <View><Text>{item.email}</Text></View>
+       <View style={{flex:1}}><Text>{item.name}</Text></View>
+       <View style={{flex:1}}><Text>{item.age}</Text></View>
+       <View style={{flex:1}}><Button title='Delete'/></View>
+       <View style={{flex:1}}><Button title='Update'/></View>
       </View>):null
     }
    </View>
@@ -42,7 +50,7 @@ const styles = StyleSheet.create({
    flex:1
  },
  dataWrapper:{
-  flex:1,
+  padding:5,
   flexDirection:'row',
   justifyContent: 'space-around',
   backgroundColor:'orange',
